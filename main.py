@@ -89,7 +89,7 @@ label.place(relx=0.5, rely=0.4,  anchor=customtkinter.CENTER)
 label = customtkinter.CTkLabel(master=app, text="2gb", font=("product_sans", 16))
 label.place(relx=0.27, rely=0.5,  anchor=customtkinter.CENTER)
 
-label = customtkinter.CTkLabel(master=app, text="6g", font=("product_sans", 16))
+label = customtkinter.CTkLabel(master=app, text="6gb", font=("product_sans", 16))
 label.place(relx=0.50, rely=0.6,  anchor=customtkinter.CENTER)
 
 label = customtkinter.CTkLabel(master=app, text="10gb", font=("product_sans", 16))
