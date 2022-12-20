@@ -46,12 +46,12 @@ def launchRise():
         command = fr'{filename}\files\azul-1.8.9_345\bin\java.exe -noverify -Xms512m -Xmx{ram}g -Djava.library.path={filename}\files\1.8.9-natives-win -cp "{filename}\files\RiseCompressed.jar;lwjgl.jar;lwjgl_util.jar" net.minecraft.client.main.Main -uuid fc5bc365-aedf-30a8-8b89-04e462e29bde -accessToken yes -version 1'
         subprocess.Popen(command, shell=True, cwd="LauncherFiles", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-
 def downloadAudio():
     try:
-        req = subprocess.Popen.reqs.get(url='https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip')
-        with open("LauncherFiles\\resourcepacks\\risetexture.zip", 'wb') as f:
-            f.write(req.content)
+        file_path = "LauncherFiles\\resourcepacks\\risetexture.zip"
+        url = "https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip"
+        command = f"curl -o {file_path} {url}"
+        subprocess.run(command, shell=True)
     except:
         createTopLevel(app, "Resource Pack Folder Not Found Please Launch Rise")
 
