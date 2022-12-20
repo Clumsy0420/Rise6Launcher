@@ -1,6 +1,7 @@
 import customtkinter
 import subprocess
 from customtkinter import filedialog
+import requests as reqs
 import json
 import os
 
@@ -14,6 +15,13 @@ global filename, msg, ram
 filename = ''
 msg = "Select a file path"
 ram = 6
+
+
+def audio_fix():
+    req = reqs.get(url='https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip')
+    print("Susccess")
+    with open("LauncherFiles\\resourcepacks\\risetexture.zip", 'wb') as f:
+        f.write(req.content)
 
 
 os.makedirs("LauncherFiles", exist_ok=True)
@@ -63,10 +71,13 @@ def create_toplevel(app=app):
 
 #Launch Shit
 button = customtkinter.CTkButton(master=app, text="Launch",font=("product_sans", 20), command=launch_Rise)
-button.place(relx=0.3, rely=0.8, anchor=customtkinter.CENTER)
+button.place(relx=0.2, rely=0.8, anchor=customtkinter.CENTER)
 
 button = customtkinter.CTkButton(master=app, text="File Path",font=("product_sans", 20), command=browseFiles)
-button.place(relx=0.7, rely=0.8, anchor=customtkinter.CENTER)
+button.place(relx=0.8, rely=0.8, anchor=customtkinter.CENTER)
+
+button = customtkinter.CTkButton(master=app, text="Audio Fix",font=("product_sans", 20), command=audio_fix)
+button.place(relx=0.5, rely=0.8, anchor=customtkinter.CENTER)
 
 label = customtkinter.CTkLabel(master=app, text="Rise 6 launcher", font=("product_sans", 20))
 label.place(relx=0.5, rely=0.10,  anchor=customtkinter.CENTER)
