@@ -19,9 +19,9 @@ ram = 6
 
 def audio_fix():
     req = reqs.get(url='https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip')
-    print("Susccess")
     with open("LauncherFiles\\resourcepacks\\risetexture.zip", 'wb') as f:
         f.write(req.content)
+    
 
 
 os.makedirs("LauncherFiles", exist_ok=True)
