@@ -15,29 +15,31 @@ app.resizable(False, False)
 filename = ""
 ram = 6
 
+pathss = f"{os.path.expanduser( '~' )}\\AppData\\Roaming\\.minecraft\\Rise6Launcher\\cum.json"
 
-os.makedirs("LauncherFiles", exist_ok=True)
-if os.path.isfile("LauncherFiles\cum.json"):
-    with open("LauncherFiles\cum.json", "r") as cum:
+
+os.makedirs(f"{os.path.expanduser( '~' )}\\AppData\\Roaming\\.minecraft\\Rise6Launcher", exist_ok=True)
+if os.path.isfile(pathss):
+    with open(pathss, "r") as cum:
         cum = json.load(cum)
         filename = cum["file_path"]
         ram = cum["ram"]
 else:
-    with open("LauncherFiles\cum.json", "w") as cum:
+    with open(pathss, "w") as cum:
         json.dump({"ram": "6", "file_path": ""}, cum)
 
 
 def browseFiles():
     global filename
     filename = filedialog.askdirectory()
-    with open("LauncherFiles\cum.json", "w") as cum:
+    with open(pathss, "w") as cum:
         json.dump({"ram": ram, "file_path": filename}, cum)
 
 
 def launchRise():
     global filename
     ram = str(int(ram_slider.get()))
-    with open("LauncherFiles\cum.json", "w") as cum:
+    with open(pathss, "w") as cum:
         json.dump({"ram": ram, "file_path": filename}, cum)
     if not filename:
         createTopLevel(app, "Select a file path")
