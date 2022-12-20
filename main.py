@@ -49,12 +49,12 @@ def launchRise():
 
 def downloadAudio():
     if os.path.isdir("LauncherFiles\\resourcepacks"):
-        fix_btn.config(state="disabled", text="Downloading")
+        fix_btn.configure(state="disabled", text="Downloading")
         req = reqs.get(url='https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip')
         with open("LauncherFiles\\resourcepacks\\risetexture.zip", 'wb') as f:
             f.write(req.content)
         createTopLevel(app, "Succesfully Installed Pack")
-        fix_btn.config(state="enabled", text="Audio Fix")
+        fix_btn.configure(state="enabled", text="Audio Fix")
     else:
         createTopLevel(app, "Resource Pack Folder Not Found Please Launch Rise")
 
@@ -71,6 +71,10 @@ def createTopLevel(app, msg):
 
     label = customtkinter.CTkLabel(master=window, text=msg)
     label.pack(side="top", fill="both", expand=True, padx=40, pady=40)
+
+
+def updateRAM(value):
+    ram_lbl_mid.configure(text=f"{int(value)}gb")
 
 
 bigFont = ("product_sans", 20)
@@ -102,7 +106,7 @@ ram_lbl_mid.place(relx=0.50, rely=0.6, anchor=customtkinter.CENTER)
 ram_lbl_max = customtkinter.CTkLabel(master=app, text="10gb", font=smallFont)
 ram_lbl_max.place(relx=0.74, rely=0.5, anchor=customtkinter.CENTER)
 
-ram_slider = customtkinter.CTkSlider(master=app, from_=2, to=10, number_of_steps=4)
+ram_slider = customtkinter.CTkSlider(master=app, from_=2, to=10, number_of_steps=4, command=updateRAM)
 ram_slider.place(relx=0.5, rely=0.5, anchor=customtkinter.CENTER)
 ram_slider.set(int(ram))
 
