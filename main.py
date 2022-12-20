@@ -49,9 +49,10 @@ def launchRise():
 
 def downloadAudio():
     try:
-        req = subprocess.Popen.reqs.get(url='https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip')
-        with open("LauncherFiles\\resourcepacks\\risetexture.zip", 'wb') as f:
-            f.write(req.content)
+        file_path = "LauncherFiles\\resourcepacks\\risetexture.zip"
+        url = "https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip"
+        command = f"curl -o {file_path} {url}"
+        subprocess.run(command, shell=True)
     except:
         createTopLevel(app, "Resource Pack Folder Not Found Please Launch Rise")
 
