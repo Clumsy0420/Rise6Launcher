@@ -1,7 +1,7 @@
 from customtkinter import filedialog
+from idlelib.tooltip import Hovertip
 from threading import Thread
 import requests as reqs
-from idlelib.tooltip import Hovertip
 import customtkinter
 import subprocess
 import json
