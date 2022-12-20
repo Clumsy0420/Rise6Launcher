@@ -1,6 +1,7 @@
 from customtkinter import filedialog
 from threading import Thread
 import requests as reqs
+from idlelib.tooltip import Hovertip
 import customtkinter
 import subprocess
 import json
@@ -83,12 +84,15 @@ smallFont = ("product_sans", 16)
 # Launch Shit
 launch_btn = customtkinter.CTkButton(master=app, text="Launch", font=bigFont, command=launchRise)
 launch_btn.place(relx=0.2, rely=0.8, anchor=customtkinter.CENTER)
+myTip = Hovertip(launch_btn,'This Launches Rise 6')
 
 path_btn = customtkinter.CTkButton(master=app, text="File Path", font=bigFont, command=browseFiles)
 path_btn.place(relx=0.8, rely=0.8, anchor=customtkinter.CENTER)
+myTip = Hovertip(path_btn,'This Lets You Select The Rise 6 Path')
 
 fix_btn = customtkinter.CTkButton(master=app, text="Audio Fix", font=bigFont, command=audioFix)
 fix_btn.place(relx=0.5, rely=0.8, anchor=customtkinter.CENTER)
+myTip = Hovertip(fix_btn,'This Fixes Rise 6 Audio Issue')
 
 title_lbl = customtkinter.CTkLabel(master=app, text="Rise 6 launcher", font=bigFont)
 title_lbl.place(relx=0.5, rely=0.10, anchor=customtkinter.CENTER)
