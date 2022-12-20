@@ -48,17 +48,15 @@ def launchRise():
 
 
 def downloadAudio():
-    try:
+    if os.path.isdir("LauncherFiles\\resourcepacks"):
         fix_btn.config(state="disabled", text="Downloading")
         req = reqs.get(url='https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip')
         with open("LauncherFiles\\resourcepacks\\risetexture.zip", 'wb') as f:
             f.write(req.content)
         createTopLevel(app, "Succesfully Installed Pack")
-    except:
+        fix_btn.config(state="enabled", text="Audio Fix")
+    else:
         createTopLevel(app, "Resource Pack Folder Not Found Please Launch Rise")
-    
-    fix_btn.config(state="enabled", text="Audio Fix")
-
 
 def audioFix():
     dl_thread = Thread(target=downloadAudio)
