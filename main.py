@@ -10,22 +10,15 @@ app.geometry("500x250")
 app.title("By Clumsy#2304")
 app.resizable(False,False)
 
-
-global filename, msg, ram
 filename = ''
-msg = "Select a file path"
 ram = 6
-
 
 def audio_fix():
     req = reqs.get(url='https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip')
     with open("LauncherFiles\\resourcepacks\\risetexture.zip", 'wb') as f:
         f.write(req.content)
-    
-
 
 os.makedirs("LauncherFiles", exist_ok=True)
-
 if os.path.isfile('LauncherFiles\cum.json'):
     with open('LauncherFiles\cum.json', 'r') as cum:
         cum = json.load(cum)
@@ -42,24 +35,19 @@ def browseFiles():
         json.dump({"ram": ram, "file_path": filename}, cum)
 
 def launch_Rise():
-    global filename, msg
+    global filename
     ram = str(int(slider.get()))
     with open('LauncherFiles\cum.json', 'w') as cum:
         json.dump({"ram": ram, "file_path": filename}, cum)
     if not filename:
-        msg = "Select a file path"
-        create_toplevel()
+        create_toplevel(app, "Select a file path")
     elif not os.path.isfile(f'{filename}\\files\\azul-1.8.9_345\\bin\\java.exe'):
-        msg = "JDK was not found in the supplied file path"
-        create_toplevel()
+        create_toplevel(app, "JDK was not found in the supplied file path")
     else:
         command = fr'{filename}\files\azul-1.8.9_345\bin\java.exe -noverify -Xms512m -Xmx{ram}g -Djava.library.path={filename}\files\1.8.9-natives-win -cp "{filename}\files\RiseCompressed.jar;lwjgl.jar;lwjgl_util.jar" net.minecraft.client.main.Main -uuid fc5bc365-aedf-30a8-8b89-04e462e29bde -accessToken yes -version 1'
         subprocess.Popen(command, shell=True, cwd="LauncherFiles", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-#Popup Shit
-
-def create_toplevel(app=app):
-    global msg
+def create_toplevel(app, msg):
     window = customtkinter.CTkToplevel(app)
     window.geometry("425x150")
     window.title("By Clumsy#2304")
