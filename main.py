@@ -14,9 +14,15 @@ filename = ''
 ram = 6
 
 def audio_fix():
-    req = reqs.get(url='https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip')
-    with open("LauncherFiles\\resourcepacks\\risetexture.zip", 'wb') as f:
-        f.write(req.content)
+    try:
+        req = subprocess.Popen.reqs.get(url='https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip')
+        with open("LauncherFiles\\resourcepacks\\risetexture.zip", 'wb') as f:
+            f.write(req.content)
+    except:
+        create_toplevel(app, "Resource Pack Folder Not Found Please Launch Rise")
+        
+
+
 
 os.makedirs("LauncherFiles", exist_ok=True)
 if os.path.isfile('LauncherFiles\cum.json'):
