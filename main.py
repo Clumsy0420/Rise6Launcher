@@ -63,13 +63,16 @@ def create_toplevel(app=app):
 
 #Launch Shit
 button = customtkinter.CTkButton(master=app, text="Launch",font=("product_sans", 20), command=launch_Rise)
-button.place(relx=0.3, rely=0.8, anchor=customtkinter.CENTER)
+button.place(relx=0.2, rely=0.8, anchor=customtkinter.CENTER)
 
 button = customtkinter.CTkButton(master=app, text="File Path",font=("product_sans", 20), command=browseFiles)
-button.place(relx=0.7, rely=0.8, anchor=customtkinter.CENTER)
+button.place(relx=0.8, rely=0.8, anchor=customtkinter.CENTER)
+
+button = customtkinter.CTkButton(master=app, text="Audio Fix",font=("product_sans", 20), command=browseFiles)
+button.place(relx=0.5, rely=0.8, anchor=customtkinter.CENTER)
 
 label = customtkinter.CTkLabel(master=app, text="Rise 6 launcher", font=("product_sans", 20))
-label.place(relx=0.5, rely=0.10,  anchor=customtkinter.CENTER)
+label.place(relx=0.5, rely=0.20,  anchor=customtkinter.CENTER)
 
 #Ram Shit
 label = customtkinter.CTkLabel(master=app, text="Ram Allocation", font=("product_sans", 16))
@@ -78,7 +81,7 @@ label.place(relx=0.5, rely=0.4,  anchor=customtkinter.CENTER)
 label = customtkinter.CTkLabel(master=app, text="2gb", font=("product_sans", 16))
 label.place(relx=0.27, rely=0.5,  anchor=customtkinter.CENTER)
 
-label = customtkinter.CTkLabel(master=app, text="6g", font=("product_sans", 16))
+label = customtkinter.CTkLabel(master=app, text="6gb", font=("product_sans", 16))
 label.place(relx=0.50, rely=0.6,  anchor=customtkinter.CENTER)
 
 label = customtkinter.CTkLabel(master=app, text="10gb", font=("product_sans", 16))
