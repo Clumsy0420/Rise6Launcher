@@ -51,13 +51,8 @@ def launchRise():
 
 
 def downloadAudio():
-<<<<<<< HEAD
     if os.path.isdir(f"{os.path.expanduser( '~' )}\\AppData\\Roaming\\.minecraft\\resourcepacks"):
         fix_btn.configure(state="disabled", text="Downloading")
-=======
-    if os.path.isdir("LauncherFiles\\resourcepacks"):
-        fix_btn.config(state="disabled", text="Downloading")
->>>>>>> parent of 2ce0f80 (please please i want cum filling my ass)
         req = reqs.get(url='https://lopsidedheavyvirus.steamtest083.repl.co/risetexture.zip')
         with open(f"{os.path.expanduser( '~' )}\\AppData\\Roaming\\.minecraft\\resourcepacks\\risetexture.zip", 'wb') as f:
             f.write(req.content)
